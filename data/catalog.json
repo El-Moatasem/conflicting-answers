@@ -1,0 +1,631 @@
+{
+  "version": "2026-09-19.1",
+  "review_window_days": 30,
+  "cases": [
+    {
+      "id": "observed",
+      "title": {
+        "en": "Kenya passport: invoices or receipts?",
+        "sw": "Pasipoti ya Kenya: ankara au risiti?"
+      },
+      "synthetic": false,
+      "description": {
+        "en": "Two official pages use different counts and document terms. Their relationship needs institutional clarification.",
+        "sw": "Kurasa mbili rasmi zinatumia idadi na majina tofauti ya hati. Taasisi inahitaji kufafanua uhusiano wake."
+      },
+      "sources": [
+        {
+          "id": "directorate",
+          "publisher": "Directorate of Immigration Services",
+          "url": "https://immigration.go.ke/application-requirements/",
+          "section": "Requirements for new (First time) applications",
+          "checked_at": "2026-09-19",
+          "valid_from": null,
+          "valid_to": null,
+          "scope": {
+            "service": "first_passport",
+            "jurisdiction": "KE",
+            "applicant": "adult_citizen_by_birth"
+          },
+          "scope_note": {
+            "en": "Curated for an adult citizen by birth. Confirm local office applicability.",
+            "sw": "Imechaguliwa kwa raia mzima kwa kuzaliwa. Thibitisha matumizi katika ofisi yako."
+          },
+          "claims": {
+            "payment_documents": {
+              "value": 2,
+              "term": "payment_invoice",
+              "text": {
+                "en": "Two payment invoices accompany the completed application form.",
+                "sw": "Ankara mbili za malipo ziambatane na fomu ya maombi iliyojazwa."
+              }
+            },
+            "birth_certificate": {
+              "value": "original_and_copy",
+              "term": "birth_certificate",
+              "text": {
+                "en": "Original birth certificate plus a copy.",
+                "sw": "Cheti halisi cha kuzaliwa pamoja na nakala."
+              }
+            },
+            "national_id": {
+              "value": "original_and_copy",
+              "term": "national_id",
+              "text": {
+                "en": "Original national identity card plus a copy.",
+                "sw": "Kitambulisho halisi cha taifa pamoja na nakala."
+              }
+            }
+          },
+          "short_quote": "2 payment invoices"
+        },
+        {
+          "id": "ecitizen",
+          "publisher": "eCitizen Immigration passport page",
+          "url": "https://immigration.ecitizen.go.ke/index.php?id=4",
+          "section": "Steps of Application / During the Submission",
+          "checked_at": "2026-09-19",
+          "valid_from": null,
+          "valid_to": null,
+          "scope": {
+            "service": "first_passport",
+            "jurisdiction": "KE",
+            "applicant": "adult_citizen_by_birth"
+          },
+          "scope_note": {
+            "en": "Broader application page, scoped by the prototype curator. Currency and local applicability remain unconfirmed.",
+            "sw": "Ukurasa wa jumla wa maombi, uliochaguliwa na mtayarishaji. Usasa na matumizi ya eneo bado hayajathibitishwa."
+          },
+          "claims": {
+            "payment_documents": {
+              "value": 3,
+              "term": "application_receipt",
+              "text": {
+                "en": "Print three application receipts with the application form.",
+                "sw": "Chapisha risiti tatu za maombi pamoja na fomu ya maombi."
+              }
+            },
+            "birth_certificate": {
+              "value": "original_and_copy",
+              "term": "birth_certificate",
+              "text": {
+                "en": "Original birth certificate plus a photocopy.",
+                "sw": "Cheti halisi cha kuzaliwa pamoja na nakala."
+              }
+            },
+            "national_id": {
+              "value": "original_and_copy",
+              "term": "national_id",
+              "text": {
+                "en": "Original national identity card plus a copy.",
+                "sw": "Kitambulisho halisi cha taifa pamoja na nakala."
+              }
+            }
+          },
+          "short_quote": "three application receipts"
+        }
+      ]
+    },
+    {
+      "id": "same-term",
+      "title": {
+        "en": "Same document, different counts (fixture)",
+        "sw": "Tofauti ya idadi (mfano)"
+      },
+      "synthetic": true,
+      "description": {
+        "en": "Synthetic test case. It demonstrates classification, not a real public-service rule.",
+        "sw": "Mfano wa majaribio wa kubuni. Unaonyesha uainishaji, si kanuni halisi ya huduma."
+      },
+      "sources": [
+        {
+          "id": "same-term-0",
+          "publisher": "Synthetic source 1",
+          "url": null,
+          "section": "Requirements for new (First time) applications",
+          "checked_at": "2026-09-19",
+          "valid_from": "2026-01-01",
+          "valid_to": null,
+          "scope": {
+            "service": "first_passport",
+            "jurisdiction": "KE",
+            "applicant": "adult_citizen_by_birth"
+          },
+          "scope_note": {
+            "en": "Invented test fixture. Not official guidance.",
+            "sw": "Mfano wa kubuni wa majaribio. Si mwongozo rasmi."
+          },
+          "claims": {
+            "payment_documents": {
+              "value": 2,
+              "term": "payment_invoice",
+              "text": {
+                "en": "Two payment invoices accompany the completed application form.",
+                "sw": "Ankara mbili za malipo ziambatane na fomu ya maombi iliyojazwa."
+              }
+            },
+            "birth_certificate": {
+              "value": "original_and_copy",
+              "term": "birth_certificate",
+              "text": {
+                "en": "Original birth certificate plus a copy.",
+                "sw": "Cheti halisi cha kuzaliwa pamoja na nakala."
+              }
+            },
+            "national_id": {
+              "value": "original_and_copy",
+              "term": "national_id",
+              "text": {
+                "en": "Original national identity card plus a copy.",
+                "sw": "Kitambulisho halisi cha taifa pamoja na nakala."
+              }
+            }
+          },
+          "short_quote": null
+        },
+        {
+          "id": "same-term-1",
+          "publisher": "Synthetic source 2",
+          "url": null,
+          "section": "Requirements for new (First time) applications",
+          "checked_at": "2026-09-19",
+          "valid_from": "2026-01-01",
+          "valid_to": null,
+          "scope": {
+            "service": "first_passport",
+            "jurisdiction": "KE",
+            "applicant": "adult_citizen_by_birth"
+          },
+          "scope_note": {
+            "en": "Invented test fixture. Not official guidance.",
+            "sw": "Mfano wa kubuni wa majaribio. Si mwongozo rasmi."
+          },
+          "claims": {
+            "payment_documents": {
+              "value": 3,
+              "term": "payment_invoice",
+              "text": {
+                "en": "Three payment invoices.",
+                "sw": "Ankara tatu za malipo."
+              }
+            },
+            "birth_certificate": {
+              "value": "original_and_copy",
+              "term": "birth_certificate",
+              "text": {
+                "en": "Original birth certificate plus a copy.",
+                "sw": "Cheti halisi cha kuzaliwa pamoja na nakala."
+              }
+            },
+            "national_id": {
+              "value": "original_and_copy",
+              "term": "national_id",
+              "text": {
+                "en": "Original national identity card plus a copy.",
+                "sw": "Kitambulisho halisi cha taifa pamoja na nakala."
+              }
+            }
+          },
+          "short_quote": null
+        }
+      ]
+    },
+    {
+      "id": "different-scope",
+      "title": {
+        "en": "Different locations (fixture)",
+        "sw": "Eneo tofauti (mfano)"
+      },
+      "synthetic": true,
+      "description": {
+        "en": "Synthetic test case. It demonstrates classification, not a real public-service rule.",
+        "sw": "Mfano wa majaribio wa kubuni. Unaonyesha uainishaji, si kanuni halisi ya huduma."
+      },
+      "sources": [
+        {
+          "id": "different-scope-0",
+          "publisher": "Synthetic source 1",
+          "url": null,
+          "section": "Requirements for new (First time) applications",
+          "checked_at": "2026-09-19",
+          "valid_from": "2026-01-01",
+          "valid_to": null,
+          "scope": {
+            "service": "first_passport",
+            "jurisdiction": "KE",
+            "applicant": "adult_citizen_by_birth"
+          },
+          "scope_note": {
+            "en": "Invented test fixture. Not official guidance.",
+            "sw": "Mfano wa kubuni wa majaribio. Si mwongozo rasmi."
+          },
+          "claims": {
+            "payment_documents": {
+              "value": 2,
+              "term": "payment_invoice",
+              "text": {
+                "en": "Two payment invoices accompany the completed application form.",
+                "sw": "Ankara mbili za malipo ziambatane na fomu ya maombi iliyojazwa."
+              }
+            },
+            "birth_certificate": {
+              "value": "original_and_copy",
+              "term": "birth_certificate",
+              "text": {
+                "en": "Original birth certificate plus a copy.",
+                "sw": "Cheti halisi cha kuzaliwa pamoja na nakala."
+              }
+            },
+            "national_id": {
+              "value": "original_and_copy",
+              "term": "national_id",
+              "text": {
+                "en": "Original national identity card plus a copy.",
+                "sw": "Kitambulisho halisi cha taifa pamoja na nakala."
+              }
+            }
+          },
+          "short_quote": null
+        },
+        {
+          "id": "different-scope-1",
+          "publisher": "Synthetic source 2",
+          "url": null,
+          "section": "Requirements for new (First time) applications",
+          "checked_at": "2026-09-19",
+          "valid_from": "2026-01-01",
+          "valid_to": null,
+          "scope": {
+            "service": "first_passport",
+            "jurisdiction": "TZ",
+            "applicant": "adult_citizen_by_birth"
+          },
+          "scope_note": {
+            "en": "Invented test fixture. Not official guidance.",
+            "sw": "Mfano wa kubuni wa majaribio. Si mwongozo rasmi."
+          },
+          "claims": {
+            "payment_documents": {
+              "value": 2,
+              "term": "payment_invoice",
+              "text": {
+                "en": "Two payment invoices accompany the completed application form.",
+                "sw": "Ankara mbili za malipo ziambatane na fomu ya maombi iliyojazwa."
+              }
+            },
+            "birth_certificate": {
+              "value": "original_and_copy",
+              "term": "birth_certificate",
+              "text": {
+                "en": "Original birth certificate plus a copy.",
+                "sw": "Cheti halisi cha kuzaliwa pamoja na nakala."
+              }
+            },
+            "national_id": {
+              "value": "original_and_copy",
+              "term": "national_id",
+              "text": {
+                "en": "Original national identity card plus a copy.",
+                "sw": "Kitambulisho halisi cha taifa pamoja na nakala."
+              }
+            }
+          },
+          "short_quote": null
+        }
+      ]
+    },
+    {
+      "id": "different-period",
+      "title": {
+        "en": "Different effective periods (fixture)",
+        "sw": "Vipindi tofauti (mfano)"
+      },
+      "synthetic": true,
+      "description": {
+        "en": "Synthetic test case. It demonstrates classification, not a real public-service rule.",
+        "sw": "Mfano wa majaribio wa kubuni. Unaonyesha uainishaji, si kanuni halisi ya huduma."
+      },
+      "sources": [
+        {
+          "id": "different-period-0",
+          "publisher": "Synthetic source 1",
+          "url": null,
+          "section": "Requirements for new (First time) applications",
+          "checked_at": "2026-09-19",
+          "valid_from": "2026-01-01",
+          "valid_to": "2026-03-31",
+          "scope": {
+            "service": "first_passport",
+            "jurisdiction": "KE",
+            "applicant": "adult_citizen_by_birth"
+          },
+          "scope_note": {
+            "en": "Invented test fixture. Not official guidance.",
+            "sw": "Mfano wa kubuni wa majaribio. Si mwongozo rasmi."
+          },
+          "claims": {
+            "payment_documents": {
+              "value": 2,
+              "term": "payment_invoice",
+              "text": {
+                "en": "Two payment invoices accompany the completed application form.",
+                "sw": "Ankara mbili za malipo ziambatane na fomu ya maombi iliyojazwa."
+              }
+            },
+            "birth_certificate": {
+              "value": "original_and_copy",
+              "term": "birth_certificate",
+              "text": {
+                "en": "Original birth certificate plus a copy.",
+                "sw": "Cheti halisi cha kuzaliwa pamoja na nakala."
+              }
+            },
+            "national_id": {
+              "value": "original_and_copy",
+              "term": "national_id",
+              "text": {
+                "en": "Original national identity card plus a copy.",
+                "sw": "Kitambulisho halisi cha taifa pamoja na nakala."
+              }
+            }
+          },
+          "short_quote": null
+        },
+        {
+          "id": "different-period-1",
+          "publisher": "Synthetic source 2",
+          "url": null,
+          "section": "Requirements for new (First time) applications",
+          "checked_at": "2026-09-19",
+          "valid_from": "2026-04-01",
+          "valid_to": null,
+          "scope": {
+            "service": "first_passport",
+            "jurisdiction": "KE",
+            "applicant": "adult_citizen_by_birth"
+          },
+          "scope_note": {
+            "en": "Invented test fixture. Not official guidance.",
+            "sw": "Mfano wa kubuni wa majaribio. Si mwongozo rasmi."
+          },
+          "claims": {
+            "payment_documents": {
+              "value": 2,
+              "term": "payment_invoice",
+              "text": {
+                "en": "Two payment invoices accompany the completed application form.",
+                "sw": "Ankara mbili za malipo ziambatane na fomu ya maombi iliyojazwa."
+              }
+            },
+            "birth_certificate": {
+              "value": "original_and_copy",
+              "term": "birth_certificate",
+              "text": {
+                "en": "Original birth certificate plus a copy.",
+                "sw": "Cheti halisi cha kuzaliwa pamoja na nakala."
+              }
+            },
+            "national_id": {
+              "value": "original_and_copy",
+              "term": "national_id",
+              "text": {
+                "en": "Original national identity card plus a copy.",
+                "sw": "Kitambulisho halisi cha taifa pamoja na nakala."
+              }
+            }
+          },
+          "short_quote": null
+        }
+      ]
+    },
+    {
+      "id": "missing",
+      "title": {
+        "en": "A missing statement (fixture)",
+        "sw": "Taarifa isiyotajwa (mfano)"
+      },
+      "synthetic": true,
+      "description": {
+        "en": "Synthetic test case. It demonstrates classification, not a real public-service rule.",
+        "sw": "Mfano wa majaribio wa kubuni. Unaonyesha uainishaji, si kanuni halisi ya huduma."
+      },
+      "sources": [
+        {
+          "id": "missing-0",
+          "publisher": "Synthetic source 1",
+          "url": null,
+          "section": "Requirements for new (First time) applications",
+          "checked_at": "2026-09-19",
+          "valid_from": "2026-01-01",
+          "valid_to": null,
+          "scope": {
+            "service": "first_passport",
+            "jurisdiction": "KE",
+            "applicant": "adult_citizen_by_birth"
+          },
+          "scope_note": {
+            "en": "Invented test fixture. Not official guidance.",
+            "sw": "Mfano wa kubuni wa majaribio. Si mwongozo rasmi."
+          },
+          "claims": {
+            "payment_documents": {
+              "value": 2,
+              "term": "payment_invoice",
+              "text": {
+                "en": "Two payment invoices accompany the completed application form.",
+                "sw": "Ankara mbili za malipo ziambatane na fomu ya maombi iliyojazwa."
+              }
+            },
+            "birth_certificate": {
+              "value": "original_and_copy",
+              "term": "birth_certificate",
+              "text": {
+                "en": "Original birth certificate plus a copy.",
+                "sw": "Cheti halisi cha kuzaliwa pamoja na nakala."
+              }
+            },
+            "national_id": {
+              "value": "original_and_copy",
+              "term": "national_id",
+              "text": {
+                "en": "Original national identity card plus a copy.",
+                "sw": "Kitambulisho halisi cha taifa pamoja na nakala."
+              }
+            }
+          },
+          "short_quote": null
+        },
+        {
+          "id": "missing-1",
+          "publisher": "Synthetic source 2",
+          "url": null,
+          "section": "Requirements for new (First time) applications",
+          "checked_at": "2026-09-19",
+          "valid_from": "2026-01-01",
+          "valid_to": null,
+          "scope": {
+            "service": "first_passport",
+            "jurisdiction": "KE",
+            "applicant": "adult_citizen_by_birth"
+          },
+          "scope_note": {
+            "en": "Invented test fixture. Not official guidance.",
+            "sw": "Mfano wa kubuni wa majaribio. Si mwongozo rasmi."
+          },
+          "claims": {
+            "birth_certificate": {
+              "value": "original_and_copy",
+              "term": "birth_certificate",
+              "text": {
+                "en": "Original birth certificate plus a copy.",
+                "sw": "Cheti halisi cha kuzaliwa pamoja na nakala."
+              }
+            },
+            "national_id": {
+              "value": "original_and_copy",
+              "term": "national_id",
+              "text": {
+                "en": "Original national identity card plus a copy.",
+                "sw": "Kitambulisho halisi cha taifa pamoja na nakala."
+              }
+            }
+          },
+          "short_quote": null
+        }
+      ]
+    },
+    {
+      "id": "agreement",
+      "title": {
+        "en": "Matching statements (fixture)",
+        "sw": "Taarifa zinazolingana (mfano)"
+      },
+      "synthetic": true,
+      "description": {
+        "en": "Synthetic test case. It demonstrates classification, not a real public-service rule.",
+        "sw": "Mfano wa majaribio wa kubuni. Unaonyesha uainishaji, si kanuni halisi ya huduma."
+      },
+      "sources": [
+        {
+          "id": "agreement-0",
+          "publisher": "Synthetic source 1",
+          "url": null,
+          "section": "Requirements for new (First time) applications",
+          "checked_at": "2026-09-19",
+          "valid_from": "2026-01-01",
+          "valid_to": null,
+          "scope": {
+            "service": "first_passport",
+            "jurisdiction": "KE",
+            "applicant": "adult_citizen_by_birth"
+          },
+          "scope_note": {
+            "en": "Invented test fixture. Not official guidance.",
+            "sw": "Mfano wa kubuni wa majaribio. Si mwongozo rasmi."
+          },
+          "claims": {
+            "payment_documents": {
+              "value": 2,
+              "term": "payment_invoice",
+              "text": {
+                "en": "Two payment invoices accompany the completed application form.",
+                "sw": "Ankara mbili za malipo ziambatane na fomu ya maombi iliyojazwa."
+              }
+            },
+            "birth_certificate": {
+              "value": "original_and_copy",
+              "term": "birth_certificate",
+              "text": {
+                "en": "Original birth certificate plus a copy.",
+                "sw": "Cheti halisi cha kuzaliwa pamoja na nakala."
+              }
+            },
+            "national_id": {
+              "value": "original_and_copy",
+              "term": "national_id",
+              "text": {
+                "en": "Original national identity card plus a copy.",
+                "sw": "Kitambulisho halisi cha taifa pamoja na nakala."
+              }
+            }
+          },
+          "short_quote": null
+        },
+        {
+          "id": "agreement-1",
+          "publisher": "Synthetic source 2",
+          "url": null,
+          "section": "Requirements for new (First time) applications",
+          "checked_at": "2026-09-19",
+          "valid_from": "2026-01-01",
+          "valid_to": null,
+          "scope": {
+            "service": "first_passport",
+            "jurisdiction": "KE",
+            "applicant": "adult_citizen_by_birth"
+          },
+          "scope_note": {
+            "en": "Invented test fixture. Not official guidance.",
+            "sw": "Mfano wa kubuni wa majaribio. Si mwongozo rasmi."
+          },
+          "claims": {
+            "payment_documents": {
+              "value": 2,
+              "term": "payment_invoice",
+              "text": {
+                "en": "Two payment invoices accompany the completed application form.",
+                "sw": "Ankara mbili za malipo ziambatane na fomu ya maombi iliyojazwa."
+              }
+            },
+            "birth_certificate": {
+              "value": "original_and_copy",
+              "term": "birth_certificate",
+              "text": {
+                "en": "Original birth certificate plus a copy.",
+                "sw": "Cheti halisi cha kuzaliwa pamoja na nakala."
+              }
+            },
+            "national_id": {
+              "value": "original_and_copy",
+              "term": "national_id",
+              "text": {
+                "en": "Original national identity card plus a copy.",
+                "sw": "Kitambulisho halisi cha taifa pamoja na nakala."
+              }
+            }
+          },
+          "short_quote": null
+        }
+      ]
+    }
+  ],
+  "contact": {
+    "email": "info@immigration.go.ke",
+    "url": "https://immigration.go.ke/application-requirements/"
+  },
+  "coverage": {
+    "en": "Kenya passport pilot. Curated statements, not a complete application checklist.",
+    "sw": "Jaribio la pasipoti ya Kenya. Taarifa zilizochaguliwa, si orodha kamili ya maombi."
+  },
+  "translation_status": "AI-drafted Swahili; independent review pending"
+}

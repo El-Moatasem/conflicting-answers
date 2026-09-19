@@ -1,0 +1,20 @@
+[
+  {
+    "url": "https://immigration.go.ke/application-requirements/",
+    "checked_at": "2026-09-19",
+    "sha256": "23aaf993ab1d89deaa3921ad5c692a06a3ea3866f44ede963a7082176adc8d85",
+    "bytes": 136232
+  },
+  {
+    "url": "https://immigration.ecitizen.go.ke/index.php?id=4",
+    "checked_at": "2026-09-19",
+    "sha256": "738128623b44a4d1a75b218545c2c9ede124e6424f0c66e51cdf06b33ed7de59",
+    "bytes": 10808
+  },
+  {
+    "url": "https://neon.com/docs/guides/python",
+    "checked_at": "2026-09-19",
+    "sha256": "025215438b630480a0f08aef356fe8ac31f1d7451a05df1515843643e318a562",
+    "bytes": 723138
+  }
+]
