@@ -1,0 +1,98 @@
+CONFLICTING ANSWERS — ACTUAL COMMITS AND HOSTED PR WORKFLOW
+
+Status: commits and merges were made locally. No hosted PR, public repository,
+Render service or Neon project has been created by this delivery.
+Git_History.txt lists the actual commits. Conflicting_Answers.bundle preserves them.
+The source ZIP is a clean snapshot without .git. Use the bundle for history.
+
+A. PUBLISH THE EXISTING HISTORY (simplest)
+Requires Git and GitHub CLI authenticated to YOUR account, in a local terminal.
+Unpack the complete package, then:
+
+  git clone Conflicting_Answers.bundle conflicting-answers
+  cd conflicting-answers
+  git remote rename origin delivery-bundle
+  gh auth login
+  gh repo create conflicting-answers --public --source=. --remote=origin
+  git push -u origin main
+  git push origin refs/remotes/delivery-bundle/develop:refs/heads/develop
+  git push origin --tags
+
+The supplied history already contains local feature merges. Do not claim they were
+reviewed through GitHub PRs. The four PR descriptions in docs/prs are drafts.
+
+B. CREATE REAL GITHUB PRs INSTEAD (alternative fresh repository)
+Use a separate clone and a NEW empty repository name. Do not run B on a repository
+already published by A. Configure your Git name/email before cherry-picking.
+The tags step-0 through step-3 identify exact implementation milestones.
+
+  git clone Conflicting_Answers.bundle conflicting-answers-prs
+  cd conflicting-answers-prs
+  git remote rename origin delivery-bundle
+  git branch -m main delivery-snapshot
+  git switch -c main step-0
+  git switch -c develop
+  gh repo create conflicting-answers-reviewed --public --source=. --remote=origin
+  git push -u origin main
+  git push -u origin develop
+
+PR 1: comparison engine
+  git switch -c feature/comparison-engine
+  git cherry-pick step-1
+  git show delivery-snapshot:docs/prs/01-engine.md > ../pr-01.md
+  git push -u origin feature/comparison-engine
+  gh pr create --base develop --head feature/comparison-engine --title "Build evidence comparison engine" --body-file ../pr-01.md
+
+Review the diff and checks in GitHub, then merge with the merge-commit option.
+Alternatively, after review, run: gh pr merge feature/comparison-engine --merge
+
+PR 2: accessible comparison workspace
+  git switch develop
+  git pull --ff-only origin develop
+  git switch -c feature/comparison-workspace
+  git cherry-pick step-2
+  git show delivery-snapshot:docs/prs/02-workspace.md > ../pr-02.md
+  git push -u origin feature/comparison-workspace
+  gh pr create --base develop --head feature/comparison-workspace --title "Add bilingual offline comparison workspace" --body-file ../pr-02.md
+
+Review and merge PR 2 before proceeding.
+
+PR 3: delivery, validation and deployment
+  git switch develop
+  git pull --ff-only origin develop
+  git switch -c feature/submission-delivery
+  git cherry-pick step-3
+  git show delivery-snapshot:docs/prs/03-delivery.md > ../pr-03.md
+  git push -u origin feature/submission-delivery
+  gh pr create --base develop --head feature/submission-delivery --title "Add submission artifacts and deployment workflow" --body-file ../pr-03.md
+
+Review and merge PR 3 before proceeding.
+
+PR 4: release
+  git switch develop
+  git pull --ff-only origin develop
+  git show delivery-snapshot:docs/prs/04-release.md > ../pr-04.md
+  gh pr create --base main --head develop --title "Release Conflicting Answers proof of concept" --body-file ../pr-04.md
+
+After review and merging:
+  git switch main
+  git pull --ff-only origin main
+  git tag -a v0.1.0-reviewed -m "Release through hosted PR workflow"
+  git push origin v0.1.0-reviewed
+
+Use the distinct reviewed tag because the clone already contains the local v0.1.0
+release tag. Hosted merges and cherry-picks have different hashes from local commits.
+Do not fabricate review dates, reviewers, approvals or CI results.
+
+C. ORDINARY FOLLOW-UP WORK
+  git switch develop
+  git pull --ff-only origin develop
+  git switch -c feature/your-change
+  # Edit, run pytest, then stage specific intended files.
+  git add path/to/changed-file
+  git commit -m "Describe the concrete change"
+  git push -u origin feature/your-change
+  gh pr create --base develop --body-file path/to/pr-description.md
+
+Keep secrets in Render's environment settings. Never commit DATABASE_URL credentials.
+See docs/DEPLOY_RENDER_NEON.md for deployment and docs/VALIDATION.md for test limits.
