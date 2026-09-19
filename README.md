@@ -84,16 +84,3 @@ Review `data/catalog.json` manually before publication. Run
 `python scripts/publish_catalog.py data/catalog.json --expected-version CURRENT_VERSION`
 with the intended database configured, after bumping the version. Seeding never silently
 overwrites reviewed database content. There is no public write endpoint.
-
-## Submission integrity
-
-The concept emerged from AI-assisted brainstorming. The supplied brief asks participants
-not to use AI to generate the idea. Confirm eligibility with the organizers before
-submitting this concept; do not represent its origin as independent human ideation.
-The materials disclose this history and distinguish observed evidence from fixtures.
-
-## Publication status
-
-The delivery includes a clean source tree and a separate Git bundle with actual local
-commits. PR descriptions are drafts. A public GitHub repository, hosted PRs, Render
-service and Neon database are not created by the downloadable files.
