@@ -1,17 +1,23 @@
-# AI contribution record
+# AI coding contribution
 
-Codex assisted with concept brainstorming, the scoped comparison model, Flask and browser
-implementation, automated test cases, debugging, draft Swahili, documentation, deck and
-video scripting. The app does not call a generative model at runtime.
+Codex assisted with concept brainstorming, implementation, debugging, tests, draft
+Swahili, documentation, pitch and demo scripting. The application uses deterministic
+comparison and change detection. It does not call a generative model at runtime.
 
-Meaningful engineering decisions include: document terms must match before comparing
-values as a potential conflict; missing claims do not mean a negative requirement;
-unknown effective dates remain cautions; synthetic clarification cannot alter official
-saved evidence; catalog revisions invalidate saved ticks; source strings render as text.
+This integration used the user's uploaded source ZIP as the base. The concrete change
+was to replace blanket catalog-version invalidation with requirement-level evidence
+comparison. Codex implemented a shared pure JavaScript module, scope acknowledgement,
+selective preservation of ticks, change explanations and an isolated fictional demo.
 
-The source pair was actually retrieved. Test fixtures are invented and explicitly labeled.
-Local commits reflect work in this session and identify Codex as their author. No historic
-human review, hosted PR, user interview, measured impact or cloud deployment is fabricated.
+Validation focused on meaningful failure modes: date-only changes, scope changes,
+wording changes, requirements added/removed, conflicts, fixture isolation and saved
+state reopening offline. The pure module is used by the UI itself, not a duplicate test
+implementation. The browser test exercises actual controls and network disconnection.
 
-The brief restricts AI-generated ideas. This concept was AI-assisted and requires organizer
-eligibility clarification. Removing that disclosure would not change the history.
+AI-generated Swahili remains labeled as a draft. Official source dates were preserved
+rather than advanced merely because code was regenerated. Fictional updates are not
+presented as institutional clarification. No user interview, official response, hosted
+CI success or production deployment is invented.
+
+The supplied brief restricts using AI to generate the idea. The concept was AI-assisted;
+clarify eligibility with the organizers before submission and describe its origin honestly.

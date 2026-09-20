@@ -15,7 +15,7 @@ PlayResY: 920
 WrapStyle: 0
 [V4+ Styles]
 Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
-Style: Default,DejaVu Sans,25,&H00FFFFFF,&H00FFFFFF,&H00143C36,&H00143C36,0,0,0,0,100,100,0,0,1,0,0,2,35,35,22,1
+Style: Default,DejaVu Sans,25,&H00FFFFFF,&H00FFFFFF,&H00482D13,&H00482D13,0,0,0,0,100,100,0,0,1,0,0,2,35,35,22,1
 [Events]
 Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
 """
@@ -40,7 +40,7 @@ subprocess.run(
         "-i",
         str(d / "demo-raw.webm"),
         "-vf",
-        f"pad=1280:920:0:0:color=0x143c36,ass={ass}",
+        f"pad=1280:920:0:0:color=0x132d48,ass={ass}",
         "-c:v",
         "libx264",
         "-pix_fmt",

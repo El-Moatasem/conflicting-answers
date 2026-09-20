@@ -1,19 +1,24 @@
-# Verification record
+# Validation for the Before You Travel integration
 
-Completed locally:
-- Fourteen pytest cases: all six classifications, unknown dates, missing scope, old/future
-  review dates, absent statements, API security/read-only behavior, idempotent seeding
-  and database failure handling.
-- Browser checks: observed terminology result; two matching statements; progress saving;
-  actual offline reload; scope/date/missing cases; isolated synthetic resolution; real-case
-  resolution disabled; Swahili; 390px mobile overflow; text export; catalog-version tick
-  invalidation; local deletion; no JavaScript page errors.
-- Actual Git history preserved in a bundle. Hosted PR descriptions remain drafts.
-- Pitch PDF rendered and visually checked. Demo exported to H.264 MP4 with captions.
+Completed locally on 20 September 2026:
 
-Not verified: live Neon database, Render deployment, remote GitHub Actions execution,
-independent translation, assistive-technology user acceptance, institutional interpretation,
-community impact or compliance with the brief's idea-origin restriction.
+- 14 Python comparison/API tests passed.
+- 14 Node preparation tests passed: selective reopening, unchanged evidence, retrieval
+  dates/version-only updates, wording and scope/effective-date changes, new conflicts,
+  added/removed requirements, incomparable rows, canonical ordering, fixture isolation
+  and strict boolean completion values.
+- Playwright browser checks passed: scope acknowledgement, existing comparison classes,
+  offline reload, preserved preparation, isolated fictional update, one reopened step,
+  date-only updates, real response changes, saved explanations after offline reload,
+  legacy v1 snapshot migration, text export, 390px mobile layout, draft Swahili and clearing both snapshot versions.
+- The demo records actual browser interactions, including network disconnection and
+  the visible fictional-update controls. It is a silent captioned recording.
 
-Re-run instructions are in README.md. PostgreSQL CI uses a test-only local service; its
-credentials are not real deployment credentials. It has not run on a hosted repository yet.
+The package contains the tests and recording/export scripts. Remote GitHub CI, live
+Render/Neon operation, institutional clarification, independent translation, assistive
+technology user acceptance and community outcomes remain unverified in this delivery.
+The source check dates were retained from the earlier catalog; new code is not a fresh
+source verification. The remaining event eligibility issue concerns AI-assisted ideation.
+
+The 12-slide pitch PDF was rendered and visually inspected. The 144-second H.264 MP4
+was checked for dimensions, size and representative frames including the fictional change.
