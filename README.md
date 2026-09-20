@@ -87,18 +87,6 @@ plans in the browser from the current read-only catalog. Startup never overwrite
 reviewed catalog. For an intentional evidence update, revise `data/catalog.json`, bump
 its version, then use `scripts/publish_catalog.py` with the current expected version.
 
-## Record the demo
-
-After Playwright setup above, with port 8000 free:
-
-```sh
-node scripts/record_demo.cjs
-python scripts/render_video.py artifacts
-```
-
-ffmpeg is required for MP4 export. The result is a captioned silent recording.
-[The timed transcript](docs/DEMO_TRANSCRIPT.md) can be used for your own voiceover.
-The supplied brief specifies a video format/size limit but does not require narration.
 
 ## Trust, privacy and limits
 
@@ -111,17 +99,3 @@ outside the clear-saved-data action. First use needs a browser and internet acce
 There is no runtime LLM, live source crawler, background alert, SMS/USSD, application
 submission or payment processing. Accessibility/user testing remains pending.
 
-## Submission materials
-
-- [Written summary](docs/SUBMISSION_SUMMARY.md)
-- [AI coding record](docs/AI_USAGE.md)
-- [Architecture](docs/ARCHITECTURE.md)
-- [Sources and trust](docs/SOURCES_AND_TRUST.md)
-- [Validation](docs/VALIDATION.md)
-- [Pitch PDF](submission/Pitch.pdf)
-- [Integration PR body](docs/prs/05-before-you-travel.md)
-
-The idea emerged through AI-assisted brainstorming. The brief restricts AI-generated
-ideas, so organizer eligibility clarification is needed before submission. This record
-does not claim independent human ideation, user research, official endorsement or
-measured reductions in repeat visits.
