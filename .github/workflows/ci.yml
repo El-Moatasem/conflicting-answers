@@ -24,15 +24,7 @@ jobs:
   postgres:
     runs-on: ubuntu-latest
     services:
-      preparation:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - run: node --test tests/test_planning.cjs
-  postgres:
+      postgres:
         image: postgres:16
         env:
           POSTGRES_USER: ca
