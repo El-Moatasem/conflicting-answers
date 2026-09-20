@@ -1,3 +1,7 @@
+HISTORICAL BOOTSTRAP GUIDE FOR THE ORIGINAL RELEASE
+For this integration into an existing repository, use UPDATE_EXISTING_REPO.txt.
+Do not replay old feature commits into a completed main branch.
+
 CONFLICTING ANSWERS — ACTUAL COMMITS AND HOSTED PR WORKFLOW
 
 Status: commits and merges were made locally. No hosted PR, public repository,

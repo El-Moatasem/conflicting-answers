@@ -1,109 +1,121 @@
-# Conflicting Answers — written submission draft
+# Conflicting Answers — Before You Travel
 
-**Track:** Transparency & Accountability  
+**Participant:** El-Moatasem Mohamed Madani  
 **Theme:** Information you can trust  
-**Stage:** Working proof of concept, with local-user and institutional validation pending.
+**Track:** Transparency & Accountability  
+**Repository:** https://github.com/El-Moatasem/conflicting-answers  
+**Version:** Before You Travel integration, prepared 20 September 2026
 
 ## Problem and intended users
 
-A resident may find different instructions on institutional pages and still not know
-which documents to prepare or what to ask next. Conflicting Answers makes that uncertainty
-visible and actionable. The initial audience is adults preparing a first Kenyan passport,
-with particular attention to people who need a lightweight, reusable preparation guide.
-The frequency and cost of this problem have not yet been measured with local users.
+People preparing for a public-service visit may encounter instructions spread across
+several official pages. Different terminology, missing context and unclear effective
+dates can leave them unsure what to prepare. A saved checklist can also become outdated.
+The problem hypothesis is that clearer evidence and preparation could help people avoid
+preventable confusion and repeat visits. We have not measured those outcomes.
 
-## Solution
+The pilot focuses on adults who are Kenyan citizens by birth preparing a first passport.
+It requires confirmation of the applicant situation and visibly states that local office
+applicability still needs confirmation. The prototype is independent and does not provide
+a complete application checklist, institutional endorsement or a legal determination.
 
-The prototype compares a small curated set of source statements. It distinguishes
-matching evidence, different document terminology, potential numerical conflicts,
-missing statements, different applicant/location scopes and different effective periods.
-It shows the evidence side by side and never chooses an authoritative winner automatically.
+## Solution and working proof of concept
 
-Matching statements become a partial preparation checklist. Unresolved wording becomes
-a precise clarification request with both source links. Users can copy and review that
-request, download an action pack, print it or save it for offline reopening. Nothing is
-sent to an institution automatically. The tool does not submit applications or take payment.
+Conflicting Answers now includes a Before You Travel preparation journey. Users inspect
+source differences, prepare matching statements, copy a precise clarification request,
+and save or download a dated plan. The preparation screen keeps unresolved questions
+beside the checklist rather than treating an uncertain requirement as resolved.
 
-## Information sources
+Its distinguishing behavior connects source changes to the user's saved work. Each
+preparation item has a stable identifier. On successful catalog reload or reconnection,
+the app compares evidence for each item against the prior catalog. Unchanged preparation
+stays checked. Changed items reopen with before/after explanations. Added items begin
+unchecked. Removed comparison items are explained without claiming that the institution
+removed its requirement. A newer source-check date or catalog version alone does not
+reopen completed work. Scope, wording, effective dates, references and conflict status
+can all affect whether an item needs review.
 
-The observed case uses two pages accessed on 19 September 2026:
+A separate, visibly fictional example demonstrates receipt copies changing from two
+to three. Only that preparation step reopens; two unchanged steps remain checked. It
+uses the same reconciliation function as reviewed catalog updates. It runs in browser
+memory, disables saving, labels exports fictional and leaves official-source data and
+saved real progress separate. It is not an actual institutional policy change.
+
+## Sources and trust
+
+The observed example uses two public institutional pages:
 
 - Directorate of Immigration Services: https://immigration.go.ke/application-requirements/
-- eCitizen Immigration passport page: https://immigration.ecitizen.go.ke/index.php?id=4
+- eCitizen Immigration: https://immigration.ecitizen.go.ke/index.php?id=4
 
-The first refers to two payment invoices; the second refers to three application
-receipts. This is an observed wording/count difference. It is not proof of a current
-contradiction: the document terms may differ, effective dates are unknown and the
-pages' present applicability needs institutional clarification. The prototype correctly
-labels it as clarification needed. It does not reproduce unverified fees or processing
-time estimates as current guidance.
+The catalog retains source-check dates of 19 September 2026. The integration did not
+advance those dates or claim a new retrieval. Neither effective date is established.
+The broader eCitizen page's applicability to the selected applicant situation is a
+curatorial assumption requiring confirmation. Retrieval receipts from the earlier
+work record hashes and byte counts. Users can open the original pages.
 
-Five additional scenarios are explicitly synthetic and test the comparison rules. Their
-source pages, dates and requirements are invented. A separate fictional clarification
-preview demonstrates how matching evidence could add a preparation step, but cannot
-be saved as reviewed official guidance.
+The pages use different counts and terms for payment documents. The system treats
+this as a clarification need, not a confirmed contradiction. It distinguishes matching
+statements, different scope, different effective periods, terminology differences,
+missing statements and potential conflicts. It never selects a winning institution
+based solely on a newer retrieval. Five clearly labeled synthetic comparison cases
+exercise these distinctions alongside the separate fictional preparation-update demo.
 
-## Trust and accuracy
+The catalog is human-curated. An operator reviews changes, records a new version and
+publishes through a command with an expected-version check. There is no live crawler,
+background alert or automatic institutional response.
 
-Every observed statement traces to a source page and section. Check dates remain separate
-from effective dates. Retrieval hashes record which bytes informed curation; they do not
-establish truth. Missing information remains unknown, a newer retrieval never wins by
-default, and source agreement is not a guarantee of correctness.
+## Access, privacy and inclusion
 
-Comparability depends on curated service, jurisdiction and applicant context. The eCitizen
-page covers broader situations, so that mapping remains a review question. The engine
-cannot infer legal priority, resolve terminology or certify applicability. Its role is
-to make those questions explicit. A maintainer must review source revisions before a
-version-guarded catalog update. A new version clears saved ticks for user review.
+The browser client uses plain HTML, CSS and JavaScript. The first visit requires a
+browser and internet connection. Users can explicitly save a dated snapshot for offline
+reopening, download plain text or print an action pack for assisted access. Offline
+content cannot verify whether the institution has changed its instructions.
 
-## Access, language and privacy
+English and draft Swahili are available. The Swahili interface visibly identifies the
+need for independent review. Responsive layout, labeled controls, keyboard focus and a
+skip link support accessibility, but independent accessibility testing remains pending.
+The prototype does not support SMS/USSD or promise use on all basic phones.
 
-The application uses text, native browser controls and a responsive layout. English and
-draft Swahili cover the main journey. Swahili still needs independent review, which is
-visible in the interface. Human accessibility testing also remains pending.
+The app collects no names or identity documents and has no account system. Preparation
+progress and scope acknowledgement stay in browser storage only after explicit save.
+The server stores the public catalog. Clearing saved data removes this app's snapshots
+and cached shell. Downloaded files and browser history are outside that action. Hosting
+providers may retain request logs.
 
-Saved guidance reopens offline, with dated evidence and an offline label. First access
-requires internet and a browser. Text downloads and printouts support assisted access;
-SMS and USSD are outside the prototype.
+## Implementation, AI tools and validation
 
-No account, identity-document upload or personal-data field is required. Progress stays
-in memory until explicit saving, then in local browser storage. Users can clear saved
-data. Downloads and browser history are outside that deletion action. Hosting providers
-may process ordinary access metadata, so anonymity is not promised.
+Flask exposes the catalog and serves the frontend. A Python comparison engine evaluates
+curated claims. A pure JavaScript preparation module handles evidence fingerprints and
+saved-plan reconciliation. SQLite runs locally; PostgreSQL support and Render configuration
+support a Neon-backed deployment. The integration requires no database schema migration.
 
-## Implementation and AI coding usage
+Codex assisted with implementation, debugging, tests, draft translation, documentation,
+pitch and video scripting. The app makes no runtime generative-model calls. Concrete
+engineering decisions included preserving unknowns, isolating fictional evidence and
+replacing blanket tick invalidation with requirement-level change review.
 
-Flask serves a read-only API and plain HTML/CSS/JavaScript interface. A deterministic
-Python engine compares curated statements. SQLite supports local development and
-psycopg supports Neon PostgreSQL. Render deployment files, tests, real local Git commits,
-PR drafts and recording scripts accompany the code. No runtime LLM or API key is required.
-
-Codex assisted with brainstorming, architecture, code generation, test design, debugging,
-translation drafting and submission materials. Fourteen local automated tests passed,
-along with browser checks for evidence classifications, offline reopening, language/mobile
-behavior, clarification-preview isolation, version invalidation and deletion. These
-checks do not establish live cloud readiness, translation accuracy or user impact.
-
-The supplied brief asks participants not to use AI to generate the idea. This concept
-emerged from AI-assisted brainstorming and should not be described as independently
-human-originated. Eligibility clarification from the organizers is required before
-submitting this concept. The package can otherwise serve as an implementation exercise.
+Fourteen Python tests and fourteen Node tests passed locally. Browser checks covered
+selective changes, date-only updates, offline reopening, synthetic isolation, exports,
+mobile layout, language switching and local deletion. These checks do not establish
+live deployment readiness, institutional acceptance or user impact. Hosted CI and
+Render/Neon connectivity should be verified after publishing this update.
 
 ## Potential impact and scalability
 
-The intended benefit is helping residents distinguish usable information from unresolved
-questions and contact institutions more precisely. No reduction in repeat visits, money
-saved or adoption figures is claimed. A next study would ask intended users to identify
-what is consistent, what remains uncertain and whom to contact, comparing their accuracy
-and completion time with the original pages.
+A future pilot should measure whether users identify unresolved questions accurately,
+find relevant evidence faster and understand which preparation needs review. Follow-up
+research could examine repeat visits with appropriate consent. No adoption, cost-saving
+or reduced-visit figures are claimed.
 
-Expansion requires new reviewed source sets, local applicability rules, translations and
-accountable content owners. The software workflow is reusable, but content maintenance
-is the main scaling dependency. Institutional collaboration and independent language
-review should precede public community use.
+The same comparison and preparation workflow can support other services and countries
+through locally reviewed catalogs, applicability rules, languages and responsible content
+owners. Egypt and Arabic are possible extensions, not implemented coverage. Scaling
+reliable source review and local interpretation is a substantive operational requirement.
 
-## Delivery status
+## Idea-origin disclosure
 
-The package includes runnable code, a Git bundle, public-repository/PR publishing commands,
-Render/Neon instructions, a pitch PDF, a captioned MP4 and narration transcript. A public
-GitHub remote, live PRs, Render service and Neon database have not been provisioned here.
+AI assisted the concept's brainstorming as well as its development. The supplied brief
+asks participants not to use AI to generate the idea. Organizer eligibility clarification
+is needed before submitting this concept. This submission must not imply independent
+human ideation or invent user research, institutional confirmation or impact results.

@@ -1,27 +1,63 @@
-# Conflicting Answers — two-minute demo transcript
+# Demo transcript and voiceover script
 
-The supplied MP4 is a silent screen recording with captions. The narration below is
-optional text for your own voice-over. Keep the observed case separate from fixtures.
+The supplied brief does not require voice narration. The delivered MP4 is a captioned
+silent recording of the actual app. Read these lines as optional narration in your own
+voice. Keep the fictional-example labels visible. Timing follows the included recording.
 
-| Time | Screen | Narration |
-|---|---|---|
-| 00:00–00:12 | Observed case overview | “Conflicting Answers helps people compare public-service instructions and identify a clear next step. This prototype focuses on Kenyan passport preparation using two dated institutional pages.” |
-| 00:12–00:24 | Two source cards | “One page mentions two payment invoices. The other mentions three application receipts. These terms might describe different documents, and neither effective date is established. The correct result is clarification needed.” |
-| 00:24–00:36 | Statement comparison | “The app separates matching statements from unresolved evidence. It does not assume that a missing statement is a contradiction or that the most recently fetched page must be correct.” |
-| 00:36–00:48 | Clarification draft and partial checklist | “Users can prepare the matching items and copy a precise question with both source links. This is a partial checklist. Nothing is sent automatically and no personal documents are uploaded.” |
-| 00:48–01:00 | Different-scope fixture | “This clearly labeled synthetic example compares different locations. The engine refuses to call that a contradiction. A separate test case distinguishes non-overlapping effective periods.” |
-| 01:00–01:12 | Same-term count fixture | “Here, an invented example uses the same document term but different counts. That creates a potential conflict for review. It still does not establish which source is right.” |
-| 01:12–01:24 | Fictional clarification preview | “A fictional clarification demonstrates what would change when evidence agrees: a new preparation step becomes available. This preview cannot be saved as reviewed official guidance.” |
-| 01:24–01:36 | Swahili interface and review notice | “The same journey works in English and draft Swahili. The translation needs independent review. The interface uses text, native controls and a layout that adapts to smaller screens.” |
-| 01:36–01:48 | Offline reload after explicit save | “Networking is now disabled. The saved comparison reopens with its source dates and an offline label. It remains a snapshot and cannot verify the live sources until connectivity returns.” |
-| 01:48–02:00 | Clear data and overview | “Users can clear saved progress on shared devices. The package includes source code and deployment guides. AI assisted ideation and development, so organizer eligibility clarification remains necessary under the brief.” |
+## 1. 00:00–00:11
 
-## Regeneration
+Conflicting Answers now includes Before You Travel. A preparation plan connects official evidence to a clear next step.
 
-From the repository root, install the documented Playwright development dependency and
-browser. Stop other services on port 8000, then run `node scripts/record_demo.cjs`.
-It starts its own local server and writes `artifacts/demo-raw.webm` plus captions.
-Run `python scripts/render_video.py artifacts` with ffmpeg installed to create the MP4.
+## 2. 00:12–00:23
 
-Record no secrets or real applicant data. Do not describe synthetic resolution as an
-institutional response. If you change the implementation, re-record the demo.
+Confirm the supported applicant situation, then prepare matching items. This is a partial checklist, not confirmation that you are ready to travel.
+
+## 3. 00:24–00:35
+
+Two official pages use different terms: invoices and receipts. The app shows source dates and asks for clarification, without choosing a winner.
+
+## 4. 00:36–00:47
+
+The unresolved question becomes a precise clarification request. Both source links are included. The user decides whether to send it.
+
+## 5. 00:48–00:59
+
+Save explicitly, then reopen the dated plan with networking disabled. Prepared items survive offline; the live sources cannot be rechecked.
+
+## 6. 01:00–01:11
+
+After reconnecting, a separate fictional example demonstrates a change. Its invented requirements cannot overwrite the saved real plan.
+
+## 7. 01:12–01:23
+
+FICTIONAL EXAMPLE: all three preparation steps are marked complete. The receipt requirement currently asks for two copies.
+
+## 8. 01:24–01:35
+
+FICTIONAL UPDATE: the receipt count changes from two copies to three. Only the changed step reopens. The two unchanged steps remain checked.
+
+## 9. 01:36–01:47
+
+The change explanation shows the previous and current instructions. The same comparison logic handles reviewed catalog updates after reconnecting.
+
+## 10. 01:48–01:59
+
+Exit the fictional demo to return to the preserved real plan. Download a text copy or print it for use away from the screen.
+
+## 11. 02:00–02:11
+
+English and draft Swahili support the pilot journey. The translation is visibly labeled as needing independent review.
+
+## 12. 02:12–02:24
+
+No identity documents are uploaded; saved progress can be cleared. Next steps are local user validation, source review and verified deployment.
+
+## Recording your voice
+
+Use the video as a guide and record a clear voiceover. Avoid recording the microphone
+while playing audio through speakers. If narration runs longer, extend the relevant
+scene rather than rushing. Export as MP4 and keep the final file below 250 MB. The
+project scripts can regenerate a silent captioned recording.
+
+The pitch and summary disclose AI-assisted ideation and the resulting eligibility
+question under the supplied brief. Do not present the fictional update as real policy.
