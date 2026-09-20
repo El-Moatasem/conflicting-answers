@@ -37,7 +37,8 @@ an optional contact link and a draft; it does not send correspondence automatica
 Five fixtures cover same-term count differences, different locations, different time
 periods, a missing statement and agreement. Their documents and effective dates are
 invented. They have no source URLs and are labeled in the interface and downloads.
-The fictional clarification preview is limited to the synthetic same-term case.
+The Before You Travel update demo is a separate fictional case created in browser
+memory. It changes the receipt-copy count and never modifies the catalog or real save.
 
 ## Language, access and privacy
 
@@ -59,3 +60,11 @@ IP addresses and normal request metadata; do not claim anonymity.
 Thirty days is a prototype review interval, not an institutional standard. Overdue
 checks remain visible. A maintainer reviews changes before publishing a new version.
 No automatic authority ranking, rumor voting, latest-page-wins rule or truth score is used.
+
+## Before You Travel integration, 20 September 2026
+
+The integration preserves the existing source checks dated 19 September 2026; it does
+not claim a fresh retrieval. Matching items form a partial preparation plan. The
+fictional two-to-three receipt-copy update is isolated in browser memory and is not
+new official evidence. Requirement changes reopen affected steps; check-date-only
+updates do not. Unknown effective dates and office applicability stay unresolved.

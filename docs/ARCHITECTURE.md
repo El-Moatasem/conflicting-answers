@@ -1,48 +1,54 @@
-# Architecture and comparison rules
+# Architecture
 
-Browser: plain HTML/CSS/JavaScript. It renders public evidence and server-computed
-comparisons, builds a local clarification draft and stores progress only after Save.
-The service worker caches the application shell; the saved catalog remains a dated
-snapshot. Requests to the catalog API do not use implicit cached API responses.
+Flask serves a read-only `/api/catalog`, `/healthz` and browser assets from `public/`.
+`engine.py` classifies the curated source pairs. SQLite is the local default; `db.py`
+uses PostgreSQL when `DATABASE_URL` is set. The public catalog is the only server data.
 
-Server: Flask, with GET /api/catalog and GET /healthz. The catalog endpoint runs the
-same deterministic Python comparison engine tested by pytest. Health checks include
-a database read. Responses hide connection failures and set CSP, no-sniff and referrer
-policies. Source content renders as text, not arbitrary HTML.
+## Preparation and change review
 
-Database: SQLite locally or PostgreSQL through psycopg on Neon. Public catalog data
-only. Parameterized queries and an operator-only optimistic-concurrency update.
+`public/planning.js` is a pure module shared between the browser and Node tests.
+`requirements(case)` uses stable case and claim keys to identify preparation items.
+Fingerprints use sorted canonical JSON with source identity, URL, source section,
+applicability, scope notes, effective dates, claim text/term/value and comparison status.
+Source check dates and catalog version labels are intentionally excluded. A wording or
+source-reference change conservatively requires review; no LLM judges semantic equivalence.
+A source list reorder retains the same fingerprint.
 
-## Decision order
+`reconcile(previous, current, checks)` retains only boolean completion for unchanged,
+agreed requirements. Changed/new items start unchecked. Removed items lose their ticks
+and get an explanation. If a pair becomes incomparable, its old preparation rows are
+removed from that comparison. This never asserts removal of an institutional rule.
 
-1. Missing service, jurisdiction or applicant scope: insufficient context.
-2. Different scope values: different situations, no contradiction comparison.
-3. Known, non-overlapping effective intervals: different effective periods.
-4. Same claim key but absent statement/value: incomplete evidence.
-5. Different or unknown document terms: terminology review.
-6. Same term and equal normalized values: matching statements.
-7. Same term and different values: potential conflict, never an automatic winner.
+The browser runs reconciliation on successful catalog load/reconnection even when a
+curator forgot to bump the version. Existing v1 snapshots can migrate using their old
+catalog evidence; the v1 entry is deleted only after a successful v2 save. Changed scope
+also clears the corresponding applicant acknowledgement. Comparisons still require
+local office confirmation. Acknowledging scope does not establish eligibility.
 
-Unknown effective dates and old/future source-check dates remain cautions. Retrieval
-date never substitutes for an effective date. Values and term normalization are curated
-inputs, not inferred from arbitrary pages. Exact matching cannot resolve synonyms,
-legal hierarchy, exceptions or ambiguous applicability. Those require human review.
+`ca-snapshot-v2` contains the dated catalog, non-identifying ticks, scope acknowledgement,
+language and change explanations. Explicit save persists it. In-memory updates do not
+write automatically. A saved update survives offline reopening. An unchanged response
+on repeated fetch does not reset freshly completed work.
 
-## Action workflow
+## Fictional demo
 
-Only matching statements appear as preparation steps. They are explicitly a partial
-checklist. The real-case clarification draft asks whether invoices and receipts are
-identical, which count applies now and whether a current notice establishes that.
-It never sends a message or application. Real cases cannot use the synthetic-resolution
-control. The fixture preview clears its new step and blocks saving as reviewed evidence.
+`makeDemo(1|2)` creates isolated fictional sources with three matching preparation items.
+Stage 2 changes receipt-copy count only. The same reconciliation function reopens that
+step while preserving unrelated ticks. Demo state stays in memory, real saves are disabled,
+exports are labeled fictional, and exiting restores the active real comparison. Reloading
+exits the demo. Neither the server nor stored official evidence is mutated.
 
-## Scale and limits
+## Offline shell
 
-The data model can describe more services and jurisdictions, but each needs reviewed
-sources, applicability rules, translation and a content owner. The current UI ships six
-curated cases for a single service context. There is no unbounded URL ingestion or live
-crawler. The design avoids an arbitrary-fetch/SSRF endpoint entirely.
+`public/sw.js` caches the app shell including `planning.js`; the API remains network-only.
+The saved catalog supplies offline evidence. Source links require their own connectivity.
+The cache version changes with this release. HTTPS is needed except on localhost.
+Clear saved data removes both app snapshot versions and this app's shell cache/worker.
+Browser history and downloaded documents remain outside that operation.
 
-Before real deployment: independent Swahili/accessibility review, intended-user testing,
-content governance, monitoring, request throttling, least-privilege DB roles, backups and
-provider log-retention configuration. No performance or community-impact claims are made.
+## Deployment and updates
+
+No database migration is required. Existing catalog schemas are compatible. Keep the
+same Render service and Neon database, replace code, and verify `/healthz` and the UI.
+Startup uses idempotent initialization. The operator-only publication script updates
+the database with an expected-version guard; there is no public write endpoint.

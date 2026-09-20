@@ -75,8 +75,8 @@ python scripts/publish_catalog.py data/catalog.json --expected-version 2026-09-1
 ```
 
 Run this from a trusted operator terminal with DATABASE_URL set. A version mismatch
-aborts. Startup does not overwrite existing content on redeploy. On a new catalog
-version, the client clears saved ticks and asks the user to review and save again.
+aborts. Startup does not overwrite existing content on redeploy. On a reviewed catalog update, the client reopens only affected requirements and
+preserves unchanged preparation. Date-only changes do not reopen steps. Review and save again.
 There is no public administrative write route or automatic source-monitoring job.
 
 ## Troubleshooting
@@ -101,3 +101,10 @@ There is no public administrative write route or automatic source-monitoring job
 
 Provider interfaces and plans may change. Live Render/Neon deployment remains untested
 until performed with the user's accounts. A PostgreSQL CI smoke job is supplied.
+
+## Upgrading an existing deployment
+
+Use `UPDATE_EXISTING_REPO.txt`. Keep the current Render service and Neon database.
+This integration needs no schema migration and preserves the existing catalog. The
+new client derives preparation steps from the existing API response. Do not rerun old
+repository bootstrap/cherry-pick instructions against an already published project.
